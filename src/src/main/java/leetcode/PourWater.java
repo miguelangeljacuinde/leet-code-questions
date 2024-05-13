@@ -2,11 +2,28 @@ package leetcode;
 
 import java.util.Arrays;
 
-
 /*
     #755
+    You are given an elevation map represented as an integer array (heights) where heights[i] represents the height of
+    the terrain at index i. The width at each index is 1. You are also given two integers volume (units of water) and
+    k (starting index).
 
+    Water first drops at index k and rests on the top pf the highest terrain or water at that index. Then it flows
+    according to the following rules:
+
+    (Left-to-Right Rule)
+        1. If the droplet would eventually fall by moving left, move left.
+        2. Otherwise, if the droplet would eventually fall by moving right, move right.
+        3. Otherwise, rise to its current position.
+
+    Here, "eventually falls" means that the droplet will eventually be at a lower level if it moves in that direction.
+    Also, level means the height of the terrain plus any water in that column.
+
+    We can assume there is infinitely high terrain on the two sides out of bounds of the array. Also, there could not
+    be partial water being spread out evenly on more than one grid block, and each unit of water has to be in exactly
+    one block.
 */
+
 public class PourWater {
 
     public static void main(String[] args) {
