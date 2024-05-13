@@ -1,7 +1,6 @@
 package strings.mid;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -73,7 +72,7 @@ public class ReverseWordsInAString {
      */
     public static String reverseWordsInString2(String stringToReverse) {
         char[] characters = stringToReverse.toCharArray();
-        reverseListRange(characters, 0, characters.length-1);
+        reverseArrayWithRange(characters, 0, characters.length-1);
 
         int startOfWord = 0;
         while (startOfWord < characters.length) {
@@ -81,7 +80,7 @@ public class ReverseWordsInAString {
             while (endOfWord < characters.length && characters[endOfWord] != ' ') {
                 endOfWord += 1;
             }
-            reverseListRange(characters, startOfWord, endOfWord-1);
+            reverseArrayWithRange(characters, startOfWord, endOfWord-1);
             startOfWord = endOfWord + 1;
         }
         return new String(characters);
@@ -91,9 +90,8 @@ public class ReverseWordsInAString {
      * @param characters - the characters array
      * @param start - the start index
      * @param end - the end index
-     * @return - the reversed characters list
      */
-    private static char[] reverseListRange(char[] characters, int start, int end) {
+    private static void reverseArrayWithRange(char[] characters, int start, int end) {
         while (start < end) {
             char temp = characters[start];
             characters[start] = characters[end];
@@ -101,11 +99,42 @@ public class ReverseWordsInAString {
             start += 1;
             end -= 1;
         }
-        return characters;
     }
 
 }
 
 /*
+    Reverse Words In String Approach 1 : O(n) time | O(n) space
+        n = length of string
 
+    1. Init. words list.
+    2. Init. start of word index = 0.
+    3. Traverse string checking the char at the current index.
+        a. If the character at current index = ' ', add the word (substring from start of word to current index).
+            Reset start of word to current index.
+        b. Else if the character at start fo word = ' ', add the space.
+            Reset start of word to current index.
+        c. If neither, continue traversing the string.
+     4. Once we have traversed the entire string, we must add the last word (substring beginning at start fo word).
+     5. Reverse this words list.
+     6. Use Join method with "" as a delimiter on words list.
+
+    Reverse Words In String Approach 2 : O(n) time | O(n) space
+        n = length of string
+
+    1. Init. characters array with input string.
+    2. Reverse the characters array with range.
+        a. traverse array while start range < end range.
+        b. Init temp char variable = array[start].
+        c. Set array[start] = array[end]
+        d. Set array[end] = temp.
+        e. start = start + 1 && end = end - 1
+    3. Init start of word index = 0.
+    3. Traverse array while start of word index > length of array.
+        a. Init end of word index = start of word index.
+        b. While the end of word index < array length && array[end of word index] != ' ', end of word index += 1.
+     4. Reverse the characters array with range start of word and end of word - 1 (we don't want the white space,
+        hence -1).
+     5. Set start of word index = end of word index + 1 (we want to continue traversing the array, hence the +1).
+     6. Return new String(array).
 */
