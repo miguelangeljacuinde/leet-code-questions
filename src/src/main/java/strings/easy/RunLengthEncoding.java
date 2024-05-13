@@ -3,6 +3,7 @@ package strings.easy;
 /*
     Write a function that takes in a non-empty string and returns its run-length encoding.
     e.g. "AAA" -> 3A
+
     However, for edge cases of 10 or greater run-lengths we need to handle it a certain way.
     e.g. "AAAAAAAAAAAA" (12 As) cannot be 12A as 12A can be interpreted as "1AA". In order to avoid confusion,
     return "9A3A".

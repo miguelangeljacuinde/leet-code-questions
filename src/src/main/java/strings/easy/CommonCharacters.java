@@ -83,8 +83,6 @@ public class CommonCharacters {
         return finalCharsList;
     }
 
-/*************************************************************************************************************************************/
-
     /**
      * @param listOfStrings - the list of strings
      * @return - list of chars. that are common to all strings in the list

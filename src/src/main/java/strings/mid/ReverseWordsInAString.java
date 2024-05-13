@@ -72,7 +72,7 @@ public class ReverseWordsInAString {
      */
     public static String reverseWordsInString2(String stringToReverse) {
         char[] characters = stringToReverse.toCharArray();
-        reverseArrayWithRange(characters, 0, characters.length-1);
+        reverseArrayWithRange(characters, 0, characters.length - 1);
 
         int startOfWord = 0;
         while (startOfWord < characters.length) {
@@ -80,7 +80,7 @@ public class ReverseWordsInAString {
             while (endOfWord < characters.length && characters[endOfWord] != ' ') {
                 endOfWord += 1;
             }
-            reverseArrayWithRange(characters, startOfWord, endOfWord-1);
+            reverseArrayWithRange(characters, startOfWord, endOfWord - 1);
             startOfWord = endOfWord + 1;
         }
         return new String(characters);
@@ -88,8 +88,8 @@ public class ReverseWordsInAString {
 
     /**
      * @param characters - the characters array
-     * @param start - the start index
-     * @param end - the end index
+     * @param start      - the start index
+     * @param end        - the end index
      */
     private static void reverseArrayWithRange(char[] characters, int start, int end) {
         while (start < end) {

@@ -1,4 +1,4 @@
-package leetcode;
+package arrays.mid;
 
 import java.util.Arrays;
 
@@ -62,18 +62,15 @@ public class PourWater {
     public static int[] pourWaterRightToLeft(int[] heights, int volume, int startingPosition) {
         int currentIndex = startingPosition;
         int leftWall = 0;
-        int rightWall = heights.length-1;
+        int rightWall = heights.length - 1;
 
         while (volume > 0) {
-            while (currentIndex < rightWall && heights[currentIndex] >= heights[currentIndex + 1]) {
+            while (currentIndex < rightWall && heights[currentIndex] >= heights[currentIndex + 1])
                 currentIndex++;
-            }
-            while (currentIndex > leftWall && heights[currentIndex] >= heights[currentIndex - 1]) {
+            while (currentIndex > leftWall && heights[currentIndex] >= heights[currentIndex - 1])
                 currentIndex--;
-            }
-            while (currentIndex < startingPosition  && heights[currentIndex] == heights[currentIndex + 1]) {
+            while (currentIndex < startingPosition && heights[currentIndex] == heights[currentIndex + 1])
                 currentIndex++;
-            }
             heights[currentIndex]++;
             volume--;
         }
@@ -89,7 +86,7 @@ public class PourWater {
     public static int[] pourWaterLeftToRight(int[] heights, int volume, int startingPosition) {
         int currentIndex = startingPosition;
         int leftWall = 0;
-        int rightWall = heights.length-1;
+        int rightWall = heights.length - 1;
 
         while (volume > 0) {
             while (currentIndex > leftWall && heights[currentIndex] >= heights[currentIndex - 1])
