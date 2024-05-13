@@ -1,9 +1,9 @@
 package demo;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Practice {
 
@@ -28,6 +28,7 @@ public class Practice {
 
     /**
      * Prints the secret message
+     *
      * @param pyramid - the "pyramid" HashMap
      */
     private static void printSecretMessage(HashMap<Integer, String> pyramid) {
@@ -43,6 +44,7 @@ public class Practice {
 
     /**
      * Initializes the HashMap with the values from the file
+     *
      * @param myReader - the reader
      * @return - HashMap with file data
      */
