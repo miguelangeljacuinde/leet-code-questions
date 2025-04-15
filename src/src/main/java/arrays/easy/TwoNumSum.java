@@ -81,7 +81,6 @@ public class TwoNumSum {
 
 /*
     With HashSet : O(n) time | O(n) space
-
     1. Init. a hashSet for storing the numbers we have already looked up (won't store duplicates).
     2. Traverse the array.
     3. Init. the targetPair we are searching for (targetSum - currentNum).
@@ -91,7 +90,6 @@ public class TwoNumSum {
     5. If we are done traversing the array, there was no two num sum. Return an empty array.
 
     With Pointers : O(n*log(n)) time | O(1) space
-
     1. Sort the array in place.
     2. Init. left and right pointers.
     3. Traverse the array while left pointer < right pointer.

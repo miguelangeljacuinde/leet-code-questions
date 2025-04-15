@@ -1,0 +1,61 @@
+#######################################################################################################################
+
+When to Use:
+
+1. To store multiple variables of the same data type.
+
+2. If you need indexed/random access.
+    - If the problem benefits from accessing elements by index quickly.
+    🧠 Example: Finding the median, binary search, prefix sums.
+
+3. Fixed size or known size in advance.
+    - Arrays are great when you know how big the structure needs to be.
+    🧠 Example: Counting elements with a fixed range (int[26] for lowercase letters).
+
+4. When memory efficiency is critical:
+    - Arrays are more memory efficient than other dynamic data structures like ArrayList or HashMap.
+
+5. You're doing in-place operations.
+    - Many problems ask for in-place sorting, reversing, removing duplicates, etc.
+    🧠 Example: "Remove Duplicates from Sorted Array"
+
+6. The input is already an array.
+    - Don’t overthink—use what you’re given unless there’s a performance reason not to.
+
+#######################################################################################################################
+
+When to Avoid / Limitations:
+
+1. Same data type elements
+
+2. Reserved memory. Fixed size and cannot be increased/decreased.
+    - Use dynamic structures like ArrayList, List, or even LinkedList.
+
+3. You need fast insertions/deletions at arbitrary positions
+    - Arrays are O(n) for insert/delete (not at end), so use a LinkedList or Deque instead.
+    🧠 Example: Simulating queues/stacks where performance matters.
+
+4. You need fast membership testing
+    - Arrays don’t have contains() in constant time. Use Set or HashMap for O(1) lookup.
+    🧠 Example: Checking duplicates in "Two Sum"
+
+5. You need key-value mapping
+    - Arrays can’t associate keys with values. Use Map or HashMap.
+    🧠 Example: Frequency counting, memoization.
+
+6. Working with tree/graph structures
+    - Unless it’s an adjacency matrix, most tree/graph problems need Map, List, or custom classes.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Arrays:
+
+❓ Do I need fast random access → ✅ Array
+
+❓ Do I need to grow/shrink dynamically → ❌ Avoid plain arrays
+
+❓ Do I need fast lookups or key-value → ❌ Use HashMap/Set
+
+❓ Is memory usage tight → ✅ Array may help
+
+#######################################################################################################################

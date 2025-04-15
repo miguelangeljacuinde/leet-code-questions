@@ -15,7 +15,7 @@ package strings.mid;
 
 public class LongestPalindromicString {
     public static void main(String[] args) {
-        String string = "It's highnoon";
+        String string = "babad";
         System.out.println(string);
         System.out.println(longestPalindromicSubstring(string));
 
@@ -39,26 +39,25 @@ public class LongestPalindromicString {
             int[] even = getLongestPalindromeFrom(string, i - 1, i);
             int[] longest = odd[1] - odd[0] > even[1] - even[0] ? odd : even;
             currentLongest = currentLongest[1] - currentLongest[0] > longest[1] - longest[0]
-                    ? currentLongest : longest;
+                    ? currentLongest
+                    : longest;
         }
         return string.substring(currentLongest[0], currentLongest[1]);
     }
 
     /**
-     * @param string   - the input string
-     * @param leftIdx  - the left index
-     * @param rightIdx - the right index
+     * @param s     - the input string
+     * @param left  - the left index
+     * @param right - the right index
      * @return - the longest palindrome from left index to right index
      */
-    private static int[] getLongestPalindromeFrom(String string, int leftIdx, int rightIdx) {
-        while (leftIdx >= 0 && rightIdx < string.length()) {
-            if (string.charAt(leftIdx) != string.charAt(rightIdx)) {
-                break;
-            }
-            leftIdx--;
-            rightIdx++;
+    private static int[] getLongestPalindromeFrom(String s, int left, int right) {
+        while (left >= 0 && right < s.length()
+                && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        return new int[]{leftIdx + 1, rightIdx};
+        return new int[]{left + 1, right};
     }
 
 }
