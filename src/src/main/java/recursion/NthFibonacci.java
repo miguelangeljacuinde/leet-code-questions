@@ -71,13 +71,11 @@ public class NthFibonacci {
 }
 /*
     With HashSet : O(n) time | O(n) space
-
     1.Initialize first and second fib number as 0, 1 respectively in a HashMap.
         a. if the map does not contain the key, put n in the map as the key and the fib method as the value
             fib(n-1, map) + fib(n-2, map)
 
     Brute Force : O(2^n) time | O(n) space
-
     1.Initialize first and second fib number as 0, 1 respectively.
         a. if n = 1, return fib1.
         b. else if n = 2, return fib2.

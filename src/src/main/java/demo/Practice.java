@@ -2,13 +2,28 @@ package demo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Practice {
 
     public static void main(String[] args) {
-        decodingAMessageFromAFile();
+        System.out.println(removeElement(new int[] {3, 2, 2, 3}, 3));
+    }
+
+    public static int removeElement(int[] nums, int val) {
+        List<Integer> elementsLeft = new ArrayList<>();
+        for (int num : nums) {
+            if (val != num) {
+                elementsLeft.add(num);
+            }
+        }
+        System.out.print("Array: [ ");
+        elementsLeft.forEach(num -> System.out.print(num + ", "));
+        System.out.println(" ]");
+        return elementsLeft.size();
     }
 
     /**

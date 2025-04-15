@@ -12,7 +12,7 @@ import java.util.Arrays;
     the same.
 
     Sample Input: matrix = [                     matrix = [
-                             [1, 2]                        [1, 2],
+                             [1, 2]                         [1, 2],
                            ]                                [3, 4],
                                                             [5, 6]
                                                           ]
@@ -87,7 +87,6 @@ public class TransposeMatrix {
     O(w*h) time | O(w*h) space
         w = width of matrix
         h = height of matrix
-
     1. Init. the transpose matrix we will be returning with matrix[0].length as row and matrix.length as column (can
         be reversed).
     2. Traverse row by row.
