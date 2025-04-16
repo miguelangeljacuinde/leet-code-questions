@@ -112,28 +112,27 @@ public class BSTConstruction {
 }
 
 /*
+    Insertion:
+    1. Grab current node.
+    2. If value we are inserting is less than the current node’s value, check :
+        a. If current node does not have a left child, create new BST node here.
+        b. Else, recursively call insert method on this left child with the value we are trying to insert.
+    3. Else, value we are inserting is greater than or equal to current node’s value, check :
+        a. If current node does not have a right child, create new BST node here.
+        b. Else, recursively call insert method on this right child with the value we are trying to insert.
+    4. Return current node (BST tree).
 
-Insertion:
-1. Grab current node.
-2. If value we are inserting is less than the current node’s value, check :
-    a. If current node does not have a left child, create new BST node here.
-	b. Else, recursively call insert method on this left child with the value we are trying to insert.
-3. Else, value we are inserting is greater than or equal to current node’s value, check :
-	a. If current node does not have a right child, create new BST node here.
-	b. Else, recursively call insert method on this right child with the value we are trying to insert.
-4. Return current node (BST tree).
+    Contains:
+    1. Grab current node.
+    2. If the value we are searching for is less than the current node’s value,
+        check if current node has a left child and recursively call contains method on left child
+        (left child will now be the current node).
+    3. Else if the value we are searching for is greater than the current node’s value,
+        check if current node has a right child and recursively call contains method on right child
+        (right child will now be the current node).
+    4. Else the value we are searching for is equal to the current node’s value.
 
-Contains:
-1. Grab current node.
-2. If the value we are searching for is less than the current node’s value,
-    check if current node has a left child and recursively call contains method on left child
-    (left child will now be the current node).
-3. Else if the value we are searching for is greater than the current node’s value,
-    check if current node has a right child and recursively call contains method on right child
-    (right child will now be the current node).
-4. Else the value we are searching for is equal to the current node’s value.
-
-Removal:
-1.
+    Removal:
+    1.
 
 */

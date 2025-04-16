@@ -85,6 +85,7 @@ public class SimplifyPath {
     }
 
 }
+
 /*
     O(n) time | O(n) space
         n = length of the input path.

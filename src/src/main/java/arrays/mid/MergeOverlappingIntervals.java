@@ -20,7 +20,8 @@ import java.util.List;
 
     Sample Output: [[1, 2], [3, 8], [9, 10]]    // Merge the intervals [3, 5], [4, 7], [6, 8].
                                                 // The intervals can be ordered differently.
- */
+*/
+
 public class MergeOverlappingIntervals {
 
     public static void main(String[] args) {
