@@ -70,7 +70,6 @@ public class SortedSquaredArray {
 
 /*
     Brute Force Approach : O(n*log(n)) time | O(n) space
-
     1. Init. new array of same size.
     2. Traverse array squaring the integer at each index.
     3. Sort the array and return it.

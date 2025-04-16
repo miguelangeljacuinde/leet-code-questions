@@ -1,5 +1,7 @@
 package arrays.easy;
 
+import java.util.Arrays;
+
 /*
     Given an array of positive integers representing the values of coins in your possession,
     write a function that returns the minimum amount of change (the min. amount of money)
@@ -13,8 +15,6 @@ package arrays.easy;
 
     Sample Output: 20
 */
-
-import java.util.Arrays;
 
 public class NonConstructibleChange {
     public static void main(String[] args) {
@@ -44,11 +44,10 @@ public class NonConstructibleChange {
 
 /*
     O(n*log(n)) time | O(1) space
-
     1. Sort the array in place.
     2. Init. the current change
     3. Iterate through the coins one at a time.
         a. If the current coin > current change + 1, return current change + 1
         b. Else, add the current coin to the current change.
-    5. We have iterated through all the coins. So we return the current change + 1
+    4. We have iterated through all the coins. So we return the current change + 1
 */
