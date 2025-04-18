@@ -1,0 +1,84 @@
+#######################################################################################################################
+
+✅ When to Use:
+
+1. You need fast random access. (get(index))
+    - Time complexity: O(1)
+    🧠 Example: Perfect for problems where you frequently access elements by index.
+
+2. You're mostly adding elements at the end.
+    - add(value) is O(1) (amortized), very efficient.
+
+3. You know the approximate size ahead of time.
+    - You can avoid resizing overhead with new ArrayList<>(initialCapacity).
+
+4. You don’t care about gaps (nulls) or order after occasional deletions.
+    - You can compact the list manually later if needed.
+
+5. Memory overhead matters.
+    - Compared to LinkedList, ArrayList uses less memory per element.
+
+#######################################################################################################################
+
+🚫 When to Avoid / Limitations:
+
+1. You need frequent insertions or deletions in the middle of the list.
+    - add(index, value) or remove(index) = O(n) (because elements must shift).
+
+2. You need constant-time insertions/deletions from both ends.
+    - Use a Deque (ArrayDeque or LinkedList) instead.
+
+3. You’re implementing a queue or stack with many head operations.
+    - LinkedList or ArrayDeque are better suited.
+
+4. You don’t know the number of elements and care about resize overhead.
+    - Although amortized O(1), too many resizes may affect performance in tight loops.
+
+5. You need thread-safe access.
+    - Use CopyOnWriteArrayList or synchronize manually.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Arrays:
+
+❓ Do I need fast random access → ✅ ArrayList (O(1) access)
+
+❓ Do I need to grow/shrink dynamically → ✅ ArrayList (resizes automatically)
+
+❓ Do I mostly add/remove from the end → ✅ Use ArrayList (add() is O(1) amortized)
+
+❓ Will I be doing lots of insertions/removals in the middle → ❌ Avoid ArrayList (O(n) shift cost)
+
+❓ Do I need frequent insertions/removals at both ends → ❌ Avoid ArrayList, use LinkedList or Deque
+
+❓ Is memory usage tight → ❌ Arrays are better than ArrayLists
+
+#######################################################################################################################
+
+Time and Space Complexity:
+
+==============================================================================================================
+    Operation	            | Time Complexity  | Space Complexity | Notes
+==============================================================================================================
+    get(index)	            | O(1)	           | O(1)	          | Direct access by index
+--------------------------------------------------------------------------------------------------------------
+    set(index, value)	    | O(1)	           | O(1)	          | Replaces value at index
+--------------------------------------------------------------------------------------------------------------
+    add(value) (amortized)	| O(1)	           | O(1) or O(n)     | amortized (May trigger resize)
+--------------------------------------------------------------------------------------------------------------
+    add(index, value)	    | O(n)	           | O(1) or O(n)     | Shifts elements (May trigger resize)
+--------------------------------------------------------------------------------------------------------------
+    remove(index)	        | O(n)             | O(1)	          | Shifts elements left
+--------------------------------------------------------------------------------------------------------------
+    remove(value)	        | O(n)	           | O(1)	          | Needs to search for the value
+--------------------------------------------------------------------------------------------------------------
+    contains(value)	        | O(n)             | O(1)	          | Linear search
+--------------------------------------------------------------------------------------------------------------
+    indexOf(value)	        | O(n)             | O(1)	          | Linear search
+--------------------------------------------------------------------------------------------------------------
+    size()	                | O(1)             | O(1)	          | Tracked internally
+--------------------------------------------------------------------------------------------------------------
+    Resize (internally)	    | O(n)             | O(n)	          | Doubles capacity when full
+==============================================================================================================
+
+#######################################################################################################################
