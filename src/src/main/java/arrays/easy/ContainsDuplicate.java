@@ -1,5 +1,9 @@
 package arrays.easy;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
     # 217
     Given an integer array nums, return true if any value appears at least twice in the array, and return false if
@@ -25,10 +29,6 @@ package arrays.easy;
         1 <= nums.length <= 105
         -109 <= nums[i] <= 109
 */
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ContainsDuplicate {
 
