@@ -5,6 +5,11 @@ public class SinglyLinkedListDemo {
     public static class Node {
         public int value;
         public Node next;
+
+        public Node(int value) {
+            this.value = value;
+            this.next = null;
+        }
     }
 
     public Node head;
@@ -18,15 +23,10 @@ public class SinglyLinkedListDemo {
      * @return - created node for singly linked list
      */
     public Node createLinkedList(int nodeValue) {
-        Node node = new Node();
-        node.value = nodeValue;
-        node.next = null;
-
+        Node node = new Node(nodeValue);
         head = node;
         tail = node;
-
         size++;
-
         return head;
     }
 
@@ -37,8 +37,7 @@ public class SinglyLinkedListDemo {
      * @param index     - the index of newly created value
      */
     public void insertInLinkedList(int nodeValue, int index) {
-        Node newNode = new Node();
-        newNode.value = nodeValue;
+        Node newNode = new Node(nodeValue);
 
         if (head == null) { // Case 1: List is empty
             createLinkedList(nodeValue);
@@ -138,10 +137,52 @@ public class SinglyLinkedListDemo {
         }
     }
 
+    /**
+     * Deletes entire Linked List.
+     */
     public void deleteLinkedList() {
         head = null;
         tail = null;
+        size = 0;
         System.out.println("Deleted Linked List successfully!");
+    }
+
+    /**
+     * Pushes given value to the end of list.
+     *
+     * @param newValue - the new value to push into the end of the list.
+     */
+    public void push(int newValue) {
+        Node newNode = new Node(newValue);
+
+        if (head == null) {
+            head = newNode;
+        } else {
+            tail.next = newNode;
+        }
+        tail = newNode;
+        size++;
+    }
+
+    /**
+     * Removes the last node from the Linked List.
+     */
+    public void pop() {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1) {
+            head = null;
+            tail = null;
+        } else {
+            Node current = head;
+            while (current.next != tail) {
+                current = current.next;
+            }
+            current.next = null;
+            tail = current;
+        }
+        size--;
     }
 
     public static void main(String[] args) {
@@ -184,6 +225,13 @@ public class SinglyLinkedListDemo {
         System.out.print("Linked List : ");
         printList(linkedList.head);
         linkedList.traverseLinkedList();
+
+        linkedList.push(10);
+        linkedList.push(11);
+        linkedList.push(12);
+        printList(linkedList.head);
+        linkedList.pop();
+        printList(linkedList.head);
     }
 
     /**
