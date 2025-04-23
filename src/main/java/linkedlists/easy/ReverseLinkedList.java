@@ -83,13 +83,13 @@ public class ReverseLinkedList {
     public static void printList(ListNode head) {
         ListNode current = head;
         while (current != null) {
-            if (current.next == null) {
-                System.out.println(current.val);
-                break;
+            System.out.print(current.val);
+            if (current.next != null) {
+                System.out.print(" -> ");
             }
-            System.out.print(current.val + " -> ");
             current = current.next;
         }
+        System.out.println();
     }
 
 }
