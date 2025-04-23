@@ -91,7 +91,7 @@ public class MiddleNode {
 }
 
 /*
-    O(n) time | O(1) space :
+    O(n) time | O(1) space:
         n = number of nodes in linked list.
     1. Initialize a slow linked list and a fast linked list.
     2. While the fast linked list is not null and the fast linked list next pointer is also not null, traverse:
