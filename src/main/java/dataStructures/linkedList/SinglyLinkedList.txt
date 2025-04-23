@@ -1,0 +1,89 @@
+#######################################################################################################################
+
+✅ When to Use:
+
+1. You need frequent insertions/deletions at the beginning or middle.
+    - O(1) insert/delete at head, O(n) for tail or middle.
+    🧠 Example: Implementing stacks or dynamic memory blocks.
+
+2. You don’t need indexed/random access.
+    - Linked lists require traversal to reach a node.
+    🧠 Example: Maintaining order without worrying about index-based operations.
+
+3. You don’t know the size in advance or it keeps changing.
+    - Unlike arrays, linked lists grow/shrink dynamically.
+
+4. You're implementing a queue or stack manually.
+    - Singly Linked List is perfect for stack (LIFO) or simple queue (FIFO) use cases.
+
+5. You want constant time space insertion.
+    - No need to shift elements like in arrays or dynamic resizing like in ArrayLists.
+
+6. You’re solving a problem where structure flexibility is key.
+    🧠 Example: Reversing nodes, removing duplicates, detecting cycles.
+
+#######################################################################################################################
+
+🚫 When to Avoid / Limitations:
+
+1. You need fast indexed/random access.
+    - Accessing the nth node is O(n). Use arrays/ArrayList instead.
+    🧠 Example: Binary search, prefix sum problems.
+
+2. Memory is tight or element size is small.
+    - Each node stores a pointer in addition to the value → overhead.
+    🧠 Example: Handling millions of primitive ints may waste memory.
+
+3. You require frequent searching or lookup by value.
+    - Linear search only. No hashing/indexing without extra structures.
+
+4. You often insert/delete at the end.
+    - Without a tail reference, insertions at the end are O(n).
+
+5. You want bidirectional traversal.
+    - Use a Doubly Linked List if you need to go backward.
+
+6. You need sorting frequently.
+    - Sorting a linked list is harder and less efficient than sorting an array.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Linked List:
+
+❓ Do I need fast insertions/deletions (especially at head) → ✅ Singly Linked List
+
+❓ Do I need fast indexed access → ❌ Avoid linked list
+
+❓ Will the size grow/shrink frequently → ✅ Linked List fits well
+
+❓ Do I need backward traversal or remove tail node → ❌ Consider Doubly Linked List
+
+#######################################################################################################################
+
+Time and Space Complexity:
+
+==============================================================================================================
+    Operation	                   | Time Complexity   | Space Complexity | Notes
+==============================================================================================================
+    Access (index)               | O(n)              | O(1)              | Traverse from head
+--------------------------------------------------------------------------------------------------------------
+    Search by value              | O(n)              | O(1)              | Linear search
+--------------------------------------------------------------------------------------------------------------
+    Insert at beginning          | O(1)              | O(1)              | Just update head
+--------------------------------------------------------------------------------------------------------------
+    Insert at end (w/o tail)     | O(n)              | O(1)              | Traverse to end
+--------------------------------------------------------------------------------------------------------------
+    Insert at end (w/ tail)      | O(1)              | O(1)              | Direct tail access
+--------------------------------------------------------------------------------------------------------------
+    Insert at middle             | O(n)              | O(1)              | Traverse to prev node
+--------------------------------------------------------------------------------------------------------------
+    Delete at beginning          | O(1)              | O(1)              | Update head
+--------------------------------------------------------------------------------------------------------------
+    Delete at end (w/o tail)     | O(n)              | O(1)              | Traverse to second last
+--------------------------------------------------------------------------------------------------------------
+    Delete at end (w/ tail)      | O(n)              | O(1)              | Still must traverse
+--------------------------------------------------------------------------------------------------------------
+    Delete at middle             | O(n)              | O(1)              | Traverse to prev node
+==============================================================================================================
+
+#######################################################################################################################
