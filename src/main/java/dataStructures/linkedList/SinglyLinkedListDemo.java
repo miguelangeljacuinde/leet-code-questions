@@ -185,6 +185,48 @@ public class SinglyLinkedListDemo {
         size--;
     }
 
+    /**
+     * Gets the Node at the given index.
+     *
+     * @param index - the input index
+     * @return - Node at given index
+     */
+    public Node get(int index) {
+        if (index < 0 || index >= size) {
+            return null;
+        }
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
+    }
+
+    /**
+     * Sets a given value at a given index.
+     *
+     * @param index - the index to set the new Node
+     * @param value - the value we are inserting
+     * @return - true if successfully sets the new value at given index
+     */
+    public boolean set(int index, int value) {
+        if (head == null) {
+            return false;
+        } else if (index < 0 || index > size) {
+            return false;
+        } else {
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+                if (current == null) {
+                    return false;
+                }
+            }
+            current.value = value;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedListDemo linkedList = new SinglyLinkedListDemo();
 
@@ -232,6 +274,18 @@ public class SinglyLinkedListDemo {
         printList(linkedList.head);
         linkedList.pop();
         printList(linkedList.head);
+
+        System.out.println(linkedList.get(0).value);
+        System.out.println(linkedList.get(1).value);
+        linkedList.deleteLinkedList();
+
+        linkedList.push(1);
+        linkedList.push(2);
+        linkedList.push(3);
+        printList(linkedList.head);
+        linkedList.set(1, 10);
+        printList(linkedList.head);
+
     }
 
     /**
