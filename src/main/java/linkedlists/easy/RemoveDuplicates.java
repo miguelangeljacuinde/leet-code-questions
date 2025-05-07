@@ -1,7 +1,7 @@
 package linkedlists.easy;
 
 /*
-    # 26
+    #26
     You're given the head of a singly linked list whose nodes are in sorted order with respect to their values.
     Write a function that returns a modified version of the linked list that doesn't contain any nodes with duplicate
     values.
