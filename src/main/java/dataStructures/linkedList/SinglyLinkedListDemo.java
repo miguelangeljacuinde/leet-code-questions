@@ -36,7 +36,7 @@ public class SinglyLinkedListDemo {
      * @param nodeValue - the node's value
      * @param index     - the index of newly created value
      */
-    public void insertInLinkedList(int nodeValue, int index) {
+    public void insert(int nodeValue, int index) {
         Node newNode = new Node(nodeValue);
 
         if (head == null) { // Case 1: List is empty
@@ -64,7 +64,7 @@ public class SinglyLinkedListDemo {
     /**
      * Traverses and prints every node value in Linked List.
      */
-    public void traverseLinkedList() {
+    public void traverse() {
         if (head == null) {
             System.out.println("Singly Linked List does not exist!");
             return;
@@ -86,7 +86,7 @@ public class SinglyLinkedListDemo {
      *
      * @param valueToSearch - the node value to search for within the linked list
      */
-    public boolean searchInLinkedList(int valueToSearch) {
+    public boolean search(int valueToSearch) {
         while (head != null) {
             Node current = head;
             for (int i = 0; i < size; i++) {
@@ -106,7 +106,7 @@ public class SinglyLinkedListDemo {
      *
      * @param index - the index to be removed from the linked list
      */
-    public void deleteNodeInLinkedList(int index) {
+    public void deleteNode(int index) {
         if (head == null) {
             System.out.println("Linked List does not exist.");
             return;
@@ -167,9 +167,10 @@ public class SinglyLinkedListDemo {
     /**
      * Removes the last node from the Linked List.
      */
-    public void pop() {
+    public Node pop() {
+        Node removedNode = null;
         if (size == 0) {
-            return;
+            return removedNode;
         }
         if (size == 1) {
             head = null;
@@ -179,10 +180,12 @@ public class SinglyLinkedListDemo {
             while (current.next != tail) {
                 current = current.next;
             }
+            removedNode = current.next;
             current.next = null;
             tail = current;
         }
         size--;
+        return removedNode;
     }
 
     /**
@@ -227,63 +230,105 @@ public class SinglyLinkedListDemo {
         return true;
     }
 
+    /**
+     * Prepends a new value to the beginning of the list.
+     *
+     * @param value - the value to prepend
+     */
+    public void prepend(int value) {
+        Node newValue = new Node(value);
+        if (size == 0) {
+            head = newValue;
+            tail = newValue;
+        } else {
+            newValue.next = head;
+            head = newValue;
+        }
+        size++;
+    }
+
+    /**
+     * Removes the first node from the list.
+     *
+     * @return - the removed node
+     */
+    public Node removeFirst() {
+        if (head == null) {
+            return null;
+        }
+        Node removedNode = head;
+        head = head.next;
+        size--;
+        if (size == 0) {
+            tail = null;
+        }
+        return removedNode;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedListDemo linkedList = new SinglyLinkedListDemo();
 
         linkedList.createLinkedList(1);
         printList(linkedList.head);
 
-        linkedList.insertInLinkedList(2, 1);
+        linkedList.insert(2, 1);
         printList(linkedList.head);
 
-        linkedList.insertInLinkedList(3, 2);
+        linkedList.insert(3, 2);
         printList(linkedList.head);
 
-        linkedList.insertInLinkedList(4, 3);
+        linkedList.insert(4, 3);
         printList(linkedList.head);
 
-        linkedList.insertInLinkedList(0, 0);
+        linkedList.insert(0, 0);
         printList(linkedList.head);
 
         System.out.print("Traversing LinkedList : ");
-        linkedList.traverseLinkedList();
+        linkedList.traverse();
 
-        if (linkedList.searchInLinkedList(3)) {
+        if (linkedList.search(3)) {
             System.out.println("Node value was found!");
         }
 
-        linkedList.insertInLinkedList(5, 5);
-        linkedList.insertInLinkedList(6, 6);
-        linkedList.insertInLinkedList(7, 7);
+        linkedList.insert(5, 5);
+        linkedList.insert(6, 6);
+        linkedList.insert(7, 7);
 
-        linkedList.deleteNodeInLinkedList(0);
+        linkedList.deleteNode(0);
         printList(linkedList.head);
-        linkedList.deleteNodeInLinkedList(6);
+        linkedList.deleteNode(6);
         printList(linkedList.head);
-        linkedList.deleteNodeInLinkedList(3);
+        linkedList.deleteNode(3);
         printList(linkedList.head);
 
         linkedList.deleteLinkedList();
         System.out.print("Linked List : ");
         printList(linkedList.head);
-        linkedList.traverseLinkedList();
+        linkedList.traverse();
 
         linkedList.push(10);
         linkedList.push(11);
         linkedList.push(12);
         printList(linkedList.head);
-        linkedList.pop();
+        System.out.println("Removed node : " + linkedList.pop().value);
         printList(linkedList.head);
 
         System.out.println(linkedList.get(0).value);
         System.out.println(linkedList.get(1).value);
         linkedList.deleteLinkedList();
 
-        linkedList.push(1);
         linkedList.push(2);
         linkedList.push(3);
+        linkedList.push(5);
         printList(linkedList.head);
-        linkedList.set(1, 10);
+        linkedList.set(2, 4);
+        printList(linkedList.head);
+
+        linkedList.prepend(1);
+        linkedList.prepend(0);
+        printList(linkedList.head);
+
+        System.out.println("Removed the first node value : " + linkedList.removeFirst().value);
         printList(linkedList.head);
 
     }
