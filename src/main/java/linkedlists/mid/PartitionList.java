@@ -26,8 +26,6 @@ package linkedlists.mid;
         -200 <= x <= 200
 */
 
-import linkedlists.easy.RemoveLinkedListElements;
-
 public class PartitionList {
 
     /*
