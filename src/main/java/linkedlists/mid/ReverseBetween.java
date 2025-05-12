@@ -53,22 +53,22 @@ public class ReverseBetween {
      * Reverses the linked list between the start and end indices.
      *
      * @param head     - the head of the linked list
-     * @param startIdx - the starting index
+     * @param startIndex - the starting index
      * @param endIndex - the ending index
      * @return - the head of the modified linked list
      */
-    public static ListNode reverseBetween(ListNode head, int startIdx, int endIndex) {
+    public static ListNode reverseBetween(ListNode head, int startIndex, int endIndex) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode prev = dummy;
 
-        for (int i = 0; i < startIdx; i++) {
+        for (int i = 0; i < startIndex; i++) {
             prev = prev.next;
         }
 
         ListNode current = prev.next;
 
-        for (int i = 0; i < endIndex - startIdx; i++) {
+        for (int i = 0; i < endIndex - startIndex; i++) {
             ListNode toMove = current.next;
             current.next = toMove.next;
             toMove.next = prev.next;
