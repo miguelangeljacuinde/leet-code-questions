@@ -3,23 +3,23 @@ package linkedlists.easy;
 import dataStructures.linkedList.DoublyLinkedListDemo;
 
 /*
-    Write a method to determine if a doubly linked list is a palindrome (the list reads the same forward and backward).
+    Write a function that reverses a doubly linked list in place.
 
     - Example 1:
-        Sample Input: 1 <-> 2 <-> 3 <-> 2 <-> 1
-        Sample Output: true
+        Sample Input: 1 <-> 2 <-> 3 <-> 4 <-> 5
+        Sample Output: 5 <-> 4 <-> 3 <-> 2 <-> 1
 
     - Example 2:
-        Sample Input: 1 <-> 2 <-> 3 <-> 4 <-> 5
-        Sample Output: false
+        Sample Input: 1 <-> 2
+        Sample Output: 2 <-> 1
 
     - Example 3:
-        Sample Input: 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 4 <-> 3 <-> 2 <-> 1
-        Sample Output: true
+        Sample Input: 1
+        Sample Output: 1
 
     - Example 4:
         Sample Input: []
-        Sample Output: true
+        Sample Output: []
 
     - Constraints:
         The list can be empty.
@@ -27,30 +27,29 @@ import dataStructures.linkedList.DoublyLinkedListDemo;
         The values of the nodes can be any integer.
 */
 
-public class isPalindromeDLL {
+public class ReverseDLL {
 
     /**
-     * Method to determine if a doubly linked list is a palindrome
+     * Reverses a doubly linked list in place.
      *
      * @param dll - the head of the doubly linked list
-     * @return - true if the list is a palindrome, false otherwise
      */
-    public static boolean isPalindrome(DoublyLinkedListDemo dll) {
+    public static void reverse(DoublyLinkedListDemo dll) {
         if (dll == null || dll.head == null || dll.tail == null || dll.head == dll.tail) {
-            return true;
+            return;
         }
 
         DoublyLinkedListDemo.Node first = dll.head;
         DoublyLinkedListDemo.Node last = dll.tail;
 
-        while (first != last) {
-            if (first.value != last.value) {
-                return false;
-            }
+        while (first != last && first.prev != last) {
+            int temp = first.value;
+            first.value = last.value;
+            last.value = temp;
+
             first = first.next;
             last = last.prev;
         }
-        return true;
     }
 
     public static void main(String[] args) {
@@ -58,46 +57,44 @@ public class isPalindromeDLL {
         dll.createDoublyLinkedListDemo(1);
         dll.append(2);
         dll.append(3);
-        dll.append(2);
-        dll.append(1);
+        dll.append(4);
+        dll.append(5);
         System.out.print("DLL : ");
         printList(dll.head);
-        System.out.println("Is Palindrome ? -> " + isPalindrome(dll));
+        reverse(dll);
+        System.out.print("Reversed DLL : ");
+        printList(dll.head);
 
         System.out.println();
 
         dll = new DoublyLinkedListDemo();
         dll.createDoublyLinkedListDemo(1);
         dll.append(2);
-        dll.append(3);
-        dll.append(4);
-        dll.append(5);
         System.out.print("DLL : ");
         printList(dll.head);
-        System.out.println("Is Palindrome ? -> " + isPalindrome(dll));
+        reverse(dll);
+        System.out.print("Reversed DLL : ");
+        printList(dll.head);
 
         System.out.println();
 
         dll = new DoublyLinkedListDemo();
         dll.createDoublyLinkedListDemo(1);
-        dll.append(2);
-        dll.append(3);
-        dll.append(4);
-        dll.append(5);
-        dll.append(4);
-        dll.append(3);
-        dll.append(2);
-        dll.append(1);
         System.out.print("DLL : ");
         printList(dll.head);
-        System.out.println("Is Palindrome ? -> " + isPalindrome(dll));
+        reverse(dll);
+        System.out.print("Reversed DLL : ");
+        printList(dll.head);
 
         System.out.println();
 
         dll = new DoublyLinkedListDemo();
         System.out.print("DLL : ");
         printList(dll.head);
-        System.out.println("Is Palindrome ? -> " + isPalindrome(dll));
+        reverse(dll);
+        System.out.print("Reversed DLL : ");
+        printList(dll.head);
+
     }
 
     /**
@@ -122,9 +119,10 @@ public class isPalindromeDLL {
 /*
     O(n) time | O(1) space:
         n = number of nodes in the list
-    1. Traverse the list from both ends (head and tail) towards the center.
-    2. Compare the values of the nodes at both ends.
-        a.  If the values are not equal, return false.
-        b.  If the values are equal, move to the next node from both ends.
-    3. If the pointers meet or cross each other, return true (the list is a palindrome).
+    1. Create a variable first and set it to the head of the list.
+    2. Create a variable last and set it to the tail of the list.
+    3. While first is not equal to last and the previous node of first is not equal to last:
+        a. Swap the values of first and last using a temp variable
+        b. Move first to the next node (first = first.next).
+        c. Move last to the previous node (last = last.prev).
 */
