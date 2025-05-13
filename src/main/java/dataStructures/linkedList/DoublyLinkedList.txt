@@ -1,0 +1,88 @@
+#######################################################################################################################
+
+✅ When to Use:
+
+1. You need bidirectional traversal.
+    - Each node has prev and next pointers.
+    🧠 Example: Navigating a history stack (e.g., web browser forward/back).
+
+2. You need to delete a node without knowing the previous one.
+    - Unlike singly linked lists, DLLs allow O(1) deletion if you have a reference to the node.
+    🧠 Example: LRU Cache eviction, quick removal from any point.
+
+3. You frequently insert/delete at both ends.
+    - DLLs with head and tail pointers give O(1) insert/delete at both front and back.
+    🧠 Example: Implementing deque (double-ended queue).
+
+4. You want more flexible traversal and updates.
+    - Forward and backward traversal supported.
+    🧠 Example: Text editor undo/redo buffers.
+
+5. You’re building a complex data structure that requires in-place node manipulation.
+    🧠 Example: LRU cache (via LinkedHashMap), playlist management, custom memory allocators.
+
+#######################################################################################################################
+
+🚫 When to Avoid / Limitations:
+
+1. You don’t need backward traversal or deletions from arbitrary nodes.
+   - Singly Linked List is lighter and uses less memory.
+
+2. Memory usage is a concern.
+   - Each node uses extra space for an additional pointer.
+   🧠 Example: Working with millions of elements on memory-constrained devices.
+
+3. You primarily use index-based access.
+   - DLLs still require O(n) traversal to reach index i. Use arrays or ArrayLists instead.
+
+4. You don’t need in-place updates or node deletion by reference.
+   - Singly Linked List may be sufficient and simpler.
+
+5. You are not managing both ends or navigating backward.
+   DLL might be overkill for basic stack or queue use cases.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Linked List:
+
+❓ Do I need forward and backward traversal? → ✅ DLL
+
+❓ Do I need O(1) insertions and deletions from both ends? → ✅ DLL
+
+❓ Do I want to delete nodes without tracking previous node manually? → ✅ DLL
+
+❓ Do I mostly access elements by index or value? → ❌ Use Array
+
+❓ Is memory a critical constraint in my use case?	❌ DLL may be heavy
+
+❓ Am I implementing an LRU cache or deque?	✅ DLL is ideal
+
+#######################################################################################################################
+
+Time and Space Complexity:
+
+==============================================================================================================
+    Operation	                 | Time Complexity   | Space Complexity  | Notes
+==============================================================================================================
+    Access (index)               | O(n)              | O(1)              | Traverse from head or tail (whichever is closer)
+--------------------------------------------------------------------------------------------------------------
+    Search by value              | O(n)              | O(1)              | Linear search required
+--------------------------------------------------------------------------------------------------------------
+    Insert at beginning          | O(1)              | O(1)              | Update head and new node’s next/prev
+--------------------------------------------------------------------------------------------------------------
+    Insert at end (w/o tail)     | O(n)              | O(1)              | Traverse from head to find end
+--------------------------------------------------------------------------------------------------------------
+    Insert at end (w/ tail)      | O(1)              | O(1)              | Update tail and new node’s next/prev
+--------------------------------------------------------------------------------------------------------------
+    Insert at middle             | O(n)              | O(1)              | Traverse to position, adjust pointers
+--------------------------------------------------------------------------------------------------------------
+    Delete at beginning          | O(1)              | O(1)              | Update head and new head’s prev
+--------------------------------------------------------------------------------------------------------------
+    Delete at end (w/o tail)     | O(n)              | O(1)              | Traverse to second-to-last node
+--------------------------------------------------------------------------------------------------------------
+    Delete at end (w/ tail)      | O(1)              | O(1)              | Update tail and previous node’s next
+--------------------------------------------------------------------------------------------------------------
+    Delete at middle             | O(n)              | O(1)              | Traverse to node, adjust its prev/next
+==============================================================================================================
+
+#######################################################################################################################
