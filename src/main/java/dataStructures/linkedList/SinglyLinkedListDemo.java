@@ -26,7 +26,7 @@ public class SinglyLinkedListDemo {
         Node node = new Node(nodeValue);
         head = node;
         tail = node;
-        size++;
+        size = 1;
         return head;
     }
 
