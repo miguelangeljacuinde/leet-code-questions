@@ -34,7 +34,7 @@ public class ReverseDLL {
      *
      * @param dll - the head of the doubly linked list
      */
-    public static void reverse(DoublyLinkedListDemo dll) {
+    public static void reverseWithValueSwap(DoublyLinkedListDemo dll) {
         if (dll == null || dll.head == null || dll.tail == null || dll.head == dll.tail) {
             return;
         }
@@ -52,6 +52,31 @@ public class ReverseDLL {
         }
     }
 
+    /**
+     * Reverses a doubly linked list in place without swapping values.
+     *
+     * @param dll - the head of the doubly linked list
+     */
+    public static void reverseWithPointers(DoublyLinkedListDemo dll) {
+        if (dll == null || dll.head == null || dll.tail == null || dll.head == dll.tail) {
+            return;
+        }
+
+        DoublyLinkedListDemo.Node current = dll.head;
+        DoublyLinkedListDemo.Node temp;
+
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+
+        temp = dll.head;
+        dll.head = dll.tail;
+        dll.tail = temp;
+    }
+
     public static void main(String[] args) {
         DoublyLinkedListDemo dll = new DoublyLinkedListDemo();
         dll.createDoublyLinkedListDemo(1);
@@ -61,8 +86,11 @@ public class ReverseDLL {
         dll.append(5);
         System.out.print("DLL : ");
         printList(dll.head);
-        reverse(dll);
+        reverseWithValueSwap(dll);
         System.out.print("Reversed DLL : ");
+        printList(dll.head);
+        reverseWithPointers(dll);
+        System.out.print("Original DLL : ");
         printList(dll.head);
 
         System.out.println();
@@ -72,8 +100,11 @@ public class ReverseDLL {
         dll.append(2);
         System.out.print("DLL : ");
         printList(dll.head);
-        reverse(dll);
+        reverseWithValueSwap(dll);
         System.out.print("Reversed DLL : ");
+        printList(dll.head);
+        reverseWithPointers(dll);
+        System.out.print("Original DLL : ");
         printList(dll.head);
 
         System.out.println();
@@ -82,8 +113,11 @@ public class ReverseDLL {
         dll.createDoublyLinkedListDemo(1);
         System.out.print("DLL : ");
         printList(dll.head);
-        reverse(dll);
+        reverseWithValueSwap(dll);
         System.out.print("Reversed DLL : ");
+        printList(dll.head);
+        reverseWithPointers(dll);
+        System.out.print("Original DLL : ");
         printList(dll.head);
 
         System.out.println();
@@ -91,10 +125,12 @@ public class ReverseDLL {
         dll = new DoublyLinkedListDemo();
         System.out.print("DLL : ");
         printList(dll.head);
-        reverse(dll);
+        reverseWithValueSwap(dll);
         System.out.print("Reversed DLL : ");
         printList(dll.head);
-
+        reverseWithPointers(dll);
+        System.out.print("Original DLL : ");
+        printList(dll.head);
     }
 
     /**
