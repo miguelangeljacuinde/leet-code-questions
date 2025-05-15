@@ -1,0 +1,90 @@
+#######################################################################################################################
+
+✅ When to Use:
+
+1. You need Last-In-First-Out (LIFO) behavior.
+    The last element inserted is the first one removed.
+    🧠 Example: Undo operations, parsing expressions, recursive algorithms.
+
+2. You want fast and predictable push/pop operations.
+    O(1) time for insert (push) and delete (pop) at the top of the stack.
+    🧠 Example: Evaluating postfix expressions or navigating browser history.
+
+3. You need limited access (only to the most recently added element).
+    Stacks don’t require indexed access; only the top matters.
+
+4. Your algorithm involves depth-first traversal.
+    DFS and backtracking naturally use stacks under the hood.
+    🧠 Example: Maze solving, tree traversal, version control (branch stacks).
+
+5. You want lightweight temporary storage.
+    Great for short-term or scoped data holding in recursive flows or iteration.
+
+6. You’re using a bounded resource pattern (e.g., limited call stack).
+    Ideal for managing structured resource release or scope-bound logic.
+
+#######################################################################################################################
+
+🚫 When to Avoid / Limitations:
+
+1. You need random/indexed access to elements.
+    Stacks don’t support lookup by index.
+    🧠 Example: Needing the 4th element → use Array/List instead.
+
+2. You require bidirectional access or traversal.
+    Stacks are single-ended; you can only peek/pop from the top.
+    Use Deque or LinkedList for more flexibility.
+
+3. You're implementing queue-like behavior (FIFO).
+    Stack reverses the order. Use a queue instead for FIFO needs.
+
+4. You must frequently search or update arbitrary items.
+    Searching is linear, and random updates are not allowed in a proper stack.
+
+5. You need bulk deletions or inserts in the middle.
+    Stack only supports modification at the top. No middle operations.
+
+6. You require thread-safe or concurrent access by default.
+    Use ConcurrentLinkedDeque or synchronized wrappers for multithreading.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Stack:
+
+❓ Do I need LIFO access only? → ✅ Stack is perfect
+
+❓ Do I need fast push/pop? → ✅ Use Stack
+
+❓ Do I need to index or randomly access data? → ❌ Avoid Stack
+
+❓ Do I want to process elements in the order they were added? → ❌ Use a Queue
+
+❓ Do I need bidirectional movement or traversal? → ❌ Consider Deque or LinkedList
+
+#######################################################################################################################
+
+Time and Space Complexity:
+
+==============================================================================================================
+    Operation	                 | Time Complexity   | Space Complexity | Notes
+==============================================================================================================
+    Access (index)               | O(n)              | O(1)              | Must traverse from top
+--------------------------------------------------------------------------------------------------------------
+    Search by value              | O(n)              | O(1)              | Linear search from top to bottom
+--------------------------------------------------------------------------------------------------------------
+    Push (insert at top)         | O(1)              | O(1)              | Constant-time insert
+--------------------------------------------------------------------------------------------------------------
+    Pop (delete from top)        | O(1)              | O(1)              | Constant-time remove
+--------------------------------------------------------------------------------------------------------------
+    Peek (view top)              | O(1)              | O(1)              | No removal, just view top element
+--------------------------------------------------------------------------------------------------------------
+    isEmpty / size check         | O(1)              | O(1)              | Stack metadata is tracked
+--------------------------------------------------------------------------------------------------------------
+    Traverse all elements        | O(n)              | O(1)              | Visit each from top to bottom
+--------------------------------------------------------------------------------------------------------------
+    Insert at bottom             | O(n)              | O(1)              | Requires full traversal or recursion
+--------------------------------------------------------------------------------------------------------------
+    Delete at bottom             | O(n)              | O(1)              | Must reach second-to-last
+==============================================================================================================
+
+#######################################################################################################################

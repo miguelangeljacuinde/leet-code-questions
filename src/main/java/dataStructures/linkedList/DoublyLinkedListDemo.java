@@ -2,6 +2,10 @@ package dataStructures.linkedList;
 
 public class DoublyLinkedListDemo {
 
+    public Node head;
+    public Node tail;
+    public int size;
+
     /*
      * Doubly Linked List Node
      */
@@ -16,10 +20,6 @@ public class DoublyLinkedListDemo {
             this.prev = null;
         }
     }
-
-    public Node head;
-    public Node tail;
-    public int size;
 
     /**
      * Creates a Doubly Linked List.
