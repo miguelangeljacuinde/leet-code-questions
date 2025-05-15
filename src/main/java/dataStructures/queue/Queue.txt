@@ -1,0 +1,93 @@
+#######################################################################################################################
+
+✅ When to Use:
+
+1. You need First-In-First-Out (FIFO) behavior.
+    - The first element inserted is the first one removed.
+    🧠 Example: Task scheduling, printer jobs, customer service systems.
+
+2. You want predictable and fast enqueue/dequeue operations.
+    - O(1) time for insertion at rear (enqueue) and deletion from front (dequeue).
+    🧠 Example: Implementing round-robin scheduling or buffer handling.
+
+3. You process data in the order it arrives.
+    - Perfect for real-time systems where order matters.
+    🧠 Example: Streaming data, request queues.
+
+4. You require minimal memory overhead with simple access patterns.
+    - Constant time operations and sequential memory usage.
+    🧠 Example: Caching, pipe and message queues.
+
+5. You’re implementing breadth-first traversal.
+    - BFS algorithms use queues internally.
+    🧠 Example: Tree level traversal, shortest path in unweighted graphs.
+
+6. You need producer-consumer style coordination.
+    - Ideal for concurrent workflows and decoupling producers from consumers.
+
+#######################################################################################################################
+
+🚫 When to Avoid / Limitations:
+
+1. You need random/indexed access to elements.
+    - Queues do not support element lookup by index.
+    🧠 Example: Needing to quickly access the 5th item → use an array/list instead.
+
+2. You want to insert/delete elements from both ends.
+    - Use a deque (double-ended queue) for more flexibility.
+
+3. You require searching or modifying items in-place.
+    - Linear search is required; modification is not typical queue behavior.
+
+4. You need LIFO (Last-In-First-Out) behavior.
+    - Use a stack instead. Queues remove from the front, not the rear.
+
+5. You need sorted data access or priority.
+    - Standard queues do not sort; use a priority queue if order of processing is important.
+
+6. You need thread-safety or concurrent access out-of-the-box.
+    - Use `ConcurrentLinkedQueue` or synchronized wrappers for multithreaded use cases.
+
+#######################################################################################################################
+
+Quick Mental Checklist for Queue:
+
+❓ Do I need FIFO (First-In-First-Out) access? → ✅ Queue is perfect
+
+❓ Do I need fast enqueue/dequeue operations? → ✅ Use Queue
+
+❓ Do I need to index or randomly access data? → ❌ Avoid Queue
+
+❓ Do I want to process elements in the order they were added? → ✅ Queue is ideal
+
+❓ Do I need to insert/remove from both ends? → ❌ Consider Deque
+
+❓ Do I need priority-based processing? → ❌ Consider PriorityQueue
+
+#######################################################################################################################
+
+Time and Space Complexity:
+
+==============================================================================================================
+    Operation	                 | Time Complexity   | Space Complexity | Notes
+==============================================================================================================
+    Access (index)               | O(n)              | O(1)              | Must traverse from front
+--------------------------------------------------------------------------------------------------------------
+    Search by value              | O(n)              | O(1)              | Linear search front to rear
+--------------------------------------------------------------------------------------------------------------
+    Enqueue (insert at rear)     | O(1)              | O(1)              | Constant-time with rear pointer
+--------------------------------------------------------------------------------------------------------------
+    Dequeue (remove from front)  | O(1)              | O(1)              | Constant-time with front pointer
+--------------------------------------------------------------------------------------------------------------
+    Peek (view front)            | O(1)              | O(1)              | No removal, just view front element
+--------------------------------------------------------------------------------------------------------------
+    isEmpty / size check         | O(1)              | O(1)              | Queue metadata is tracked
+--------------------------------------------------------------------------------------------------------------
+    Traverse all elements        | O(n)              | O(1)              | Visit each from front to rear
+--------------------------------------------------------------------------------------------------------------
+    Insert at front              | O(n)              | O(1)              | Requires shifting or new head pointer
+--------------------------------------------------------------------------------------------------------------
+    Delete at rear               | O(n)              | O(1)              | Must traverse to second-last
+==============================================================================================================
+
+#######################################################################################################################

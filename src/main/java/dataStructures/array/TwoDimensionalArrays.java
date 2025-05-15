@@ -1,4 +1,4 @@
-package dataStructures.arrays;
+package dataStructures.array;
 
 public class TwoDimensionalArrays {
 
