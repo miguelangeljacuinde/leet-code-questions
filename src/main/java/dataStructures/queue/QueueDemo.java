@@ -36,10 +36,9 @@ public class QueueDemo {
         Node newNode = new Node(value);
         if (first == null) {
             first = newNode;
-            last = newNode;
-            return;
+        } else {
+            last.next = newNode;
         }
-        last.next = newNode;
         last = newNode;
         length++;
     }
