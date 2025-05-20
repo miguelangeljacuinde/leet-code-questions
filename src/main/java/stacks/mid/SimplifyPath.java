@@ -3,42 +3,77 @@ package stacks.mid;
 import java.util.Stack;
 
 /*
+    #71
     You are given an absolute path for a Unix-style file system, which always begins with a slash "/". Your task is to
     transform this absolute path into its simplified canonical path.
 
     The rules of a Unix-style file system are as follows:
-
-    1. A single period "." represents the current directory.
-    2. A double period  ".." represents the previous/parent directory.
-    3. Multiple consecutive slashes such as "//" and "///" are treated as a single slash "/".
-    4. Any sequence of periods that does not match the rules above should be treated as a valid directory or file name.
-        For example, "..." and "...." are valid directory names.
+        1. A single period "." represents the current directory.
+        2. A double period  ".." represents the previous/parent directory.
+        3. Multiple consecutive slashes such as "//" and "///" are treated as a single slash "/".
+        4. Any sequence of periods that does not match the rules above should be treated as a valid directory or file
+            name.
+                For example, "..." and "...." are valid directory names.
 
     The simplified canonical path should follow these rules:
-    1. The path must start with a single slash "/".
-    2. Directories within the path must be separated by exactly one slash "/".
-    3. The path must not end with a slash "/", unless it is the root directory.
-    4. The path must not have any single or double periods used to denote current or parent directories.
+        1. The path must start with a single slash "/".
+        2. Directories within the path must be separated by exactly one slash "/".
+        3. The path must not end with a slash "/", unless it is the root directory.
+        4. The path must not have any single or double periods used to denote current or parent directories.
 
     Return the simplified canonical path.
 
-    Example 1:
+    - Example 1:
         Sample Input: path = "/home/user/Documents/../Pictures"
-
         Sample Output: "/home/user/Pictures"
 
-    Example 2:
+    - Example 2:
         Sample Input: path = "/../"
-
         Sample Output: "/"
 
-    Example 3:
+    - Example 3:
         Sample Input: path = "/.../a/../b/c/../d/./"
-
         Sample Output: "/.../b/d/"
+
+    - Constraints:
+        1 <= path.length <= 3000
+        path consists of English letters, digits, period '.', slash '/' or '_'.
+        path is a valid absolute Unix path.
 */
 
 public class SimplifyPath {
+
+    /**
+     * @param path - the input path
+     * @return - the simplified canonical path
+     */
+    public static String simplifyPath(String path) {
+        Stack<String> stack = new Stack<>();
+        String[] directories = path.split("/");
+
+        for (String dir : directories) {
+            if (dir.equals(".") || dir.isEmpty()) {
+                continue;
+            }
+            else if (dir.equals("..")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else {
+                stack.push(dir);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        if (stack.isEmpty()) {
+            return "/";
+        }
+        for (String dir : stack) {
+            result.append("/").append(dir);
+        }
+        return result.toString();
+    }
+
     public static void main(String[] args) {
         String path1 = "/home/user/Documents/../Pictures";
         System.out.println("Original path: " + path1);
@@ -61,29 +96,6 @@ public class SimplifyPath {
         System.out.println();
     }
 
-    /**
-     * @param path - the input path
-     * @return - the simplified canonical path
-     */
-    public static String simplifyPath(String path) {
-        Stack<String> stack = new Stack<>();
-        String[] directories = path.split("/");
-
-        for (String dir : directories) {
-            if (dir.equals(".") || dir.isEmpty()) {
-                continue;
-            }
-            else if (dir.equals("..")) {
-                if (!stack.isEmpty()) {
-                    stack.pop();
-                }
-            } else {
-                stack.push(dir);
-            }
-        }
-        return "/" + String.join("/", stack);
-    }
-
 }
 
 /*
@@ -97,6 +109,8 @@ public class SimplifyPath {
             i. If the stack is empty, continue.
             ii. Else, pop the stack.
         c. Else push the current directory into the stack.
-    4. Return the stack using the join function to join each directory with "/".
-        a. Don't forget to include the initial "/".
+    4. Create a StringBuilder to hold the result.
+    5. If the stack is empty, return "/".
+    6. Else, traverse the stack and append each directory to the StringBuilder.
+    7. Return the StringBuilder as a string.
 */
