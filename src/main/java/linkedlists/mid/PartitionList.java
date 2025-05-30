@@ -13,12 +13,12 @@ package linkedlists.mid;
     The partitioned list should be returned as a new list.
 
     - Example 1:
-        Sample Input: head = [1,4,3,2,5,2], x = 3
-        Sample Output: [1,2,2,4,3,5]
+        Input: head = [1,4,3,2,5,2], x = 3
+        Output: [1,2,2,4,3,5]
 
     - Example 2:
-        Sample Input: head = [2,1], x = 2
-        Sample Output: [1,2]
+        Input: head = [2,1], x = 2
+        Output: [1,2]
 
     - Constraints:
         The number of nodes in the list is in the range [0, 200].

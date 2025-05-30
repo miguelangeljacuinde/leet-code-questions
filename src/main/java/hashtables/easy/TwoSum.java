@@ -33,13 +33,6 @@ import java.util.Map;
 
 public class TwoSum {
 
-    public static void main(String[] args) {
-        int[] array = new int[]{3, 5, -4, 8, 11, 1, -1, 6};
-        int targetSum = 10;
-
-        System.out.println(Arrays.toString(twoSum(array, targetSum)));
-    }
-
     /**
      * Finds two numbers whose sum is equal to the parameter target
      *
@@ -58,6 +51,24 @@ public class TwoSum {
             twoSumMap.put(nums[i], i);
         }
         return new int[]{};
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{2, 7, 11, 15};
+        int targetSum = 9;
+        System.out.println(Arrays.toString(twoSum(array, targetSum)));
+
+        array = new int[]{3, 2, 4};
+        targetSum = 6;
+        System.out.println(Arrays.toString(twoSum(array, targetSum)));
+
+        array = new int[]{3, 3};
+        System.out.println(Arrays.toString(twoSum(array, targetSum)));
+
+        array = new int[]{3, 5, -4, 8, 11, 1, -1, 6};
+        targetSum = 10;
+        System.out.println(Arrays.toString(twoSum(array, targetSum)));
+
     }
 
 }

@@ -11,8 +11,8 @@ package linkedlists.easy;
     Note: Every LinkedList node has an integer value as well as a next node pointing to the next node in the list or
     to None/null if it's the tail of the list.
 
-    Sample Input: linkedList = 1 -> 1 -> 3 -> 4 -> 4 -> 4 -> 5 -> 6 -> 6    // the head node with value 1
-    Sample Output: 1 -> 3 -> 4 -> 5 -> 6    // the head node with value 1
+    Input: linkedList = 1 -> 1 -> 3 -> 4 -> 4 -> 4 -> 5 -> 6 -> 6    // the head node with value 1
+    Output: 1 -> 3 -> 4 -> 5 -> 6    // the head node with value 1
  */
 
 public class RemoveDuplicates {

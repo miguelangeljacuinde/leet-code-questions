@@ -16,9 +16,9 @@ import java.util.List;
     however, [1, 6] and [6, 7] are indeed overlapping. Also, note that the start of any particular interval will always
     be less than or equal to the end of that interval.
 
-    Sample Input: intervals = [[1, 2], [3, 5], [4, 7], [6, 8], [9, 10]]
+    Input: intervals = [[1, 2], [3, 5], [4, 7], [6, 8], [9, 10]]
 
-    Sample Output: [[1, 2], [3, 8], [9, 10]]    // Merge the intervals [3, 5], [4, 7], [6, 8].
+    Output: [[1, 2], [3, 8], [9, 10]]    // Merge the intervals [3, 5], [4, 7], [6, 8].
                                                 // The intervals can be ordered differently.
 */
 

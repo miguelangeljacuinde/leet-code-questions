@@ -8,10 +8,10 @@ package strings.easy;
     Note: Letters should wrap around the alphabet; in other words, the letter 'z' shifted by one
     returns the letter 'a'.
 
-    Sample Input: string = "xyz"
+    Input: string = "xyz"
                   key = 2
 
-    Sample Output: "zab"
+    Output: "zab"
  */
 
 public class CaesarCipherEncryptor {

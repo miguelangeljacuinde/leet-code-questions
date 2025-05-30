@@ -7,9 +7,9 @@ package strings.easy;
 
     Note: Single character letters are palindromes.
 
-    Sample Input: string = "abcdcba"
+    Input: string = "abcdcba"
 
-    Sample Output: true
+    Output: true
 */
 
 public class PalindromeCheck {

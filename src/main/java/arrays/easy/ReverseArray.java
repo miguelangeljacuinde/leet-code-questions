@@ -3,9 +3,9 @@ package arrays.easy;
 /*
     Given an integer array reverse the array in-place.
 
-    Sample Input: array = [1, 2, 3, 4, 5]
+    Input: array = [1, 2, 3, 4, 5]
 
-    Sample Output: [5, 4, 3, 2, 1]
+    Output: [5, 4, 3, 2, 1]
 */
 
 import java.util.Arrays;

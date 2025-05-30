@@ -13,9 +13,9 @@ package graphs.mid;
     A single cycle occurs if, starting at any index in the array and following the jumps, every element in the array
     is visited exactly once before landing back on the starting index.
 
-    Sample Input: array = [2, 3, 1, -4, -4, 2]
+    Input: array = [2, 3, 1, -4, -4, 2]
 
-    Sample Output: true
+    Output: true
 */
 public class SingleCycleCheck {
     public static void main(String[] args) {

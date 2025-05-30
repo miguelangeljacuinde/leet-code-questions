@@ -6,16 +6,16 @@ package linkedlists.easy;
     Node.val == val, and return the new head.
 
     - Example 1:
-        Sample Input: head = [1,2,6,3,4,5,6], val = 6
-        Sample Output: [1,2,3,4,5]
+        Input: head = [1,2,6,3,4,5,6], val = 6
+        Output: [1,2,3,4,5]
 
     - Example 2:
-        Sample Input: head = [], val = 1
-        Sample Output: []
+        Input: head = [], val = 1
+        Output: []
 
     - Example 3:
-        Sample Input: head = [7,7,7,7], val = 7
-        Sample Output: []
+        Input: head = [7,7,7,7], val = 7
+        Output: []
 
     - Constraints:
         The number of nodes in the list is in the range [0, 104].

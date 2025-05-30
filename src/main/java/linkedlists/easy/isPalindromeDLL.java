@@ -6,7 +6,7 @@ import dataStructures.linkedList.DoublyLinkedListDemo;
     Write a method to determine if a doubly linked list is a palindrome (the list reads the same forward and backward).
 
     - Example 1:
-        Sample Input: 1 <-> 2 <-> 3 <-> 2 <-> 1
+        Input: 1 <-> 2 <-> 3 <-> 2 <-> 1
         Sample Output: true
 
     - Example 2:

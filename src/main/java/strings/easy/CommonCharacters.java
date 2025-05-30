@@ -9,9 +9,9 @@ import java.util.*;
     Not: Strings are not guaranteed to only contain alphanumeric characters. The list can
     be in anu order.
 
-    Sample Input: strings = ["abc", "bcd", "cbaccd"]
+    Input: strings = ["abc", "bcd", "cbaccd"]
 
-    Sample Output: ["b", "c"] <- the characters can be ordered differently.
+    Output: ["b", "c"] <- the characters can be ordered differently.
 */
 public class CommonCharacters {
     public static void main(String[] args) {

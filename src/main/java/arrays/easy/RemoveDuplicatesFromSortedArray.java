@@ -14,9 +14,9 @@ import java.util.Arrays;
 
     The remaining elements of nums are not important as well as the size of nums. Return k.
 
-    Sample Input: array = [1, 2, 2, 3, 4, 4, 5]
+    Input: array = [1, 2, 2, 3, 4, 4, 5]
 
-    Sample Output: 5
+    Output: 5
 */
 
 public class RemoveDuplicatesFromSortedArray {

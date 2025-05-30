@@ -1,4 +1,4 @@
-package arrays.easy;
+package hashtables.easy;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -10,20 +10,20 @@ import java.util.Set;
     every element is distinct.
 
     - Example 1:
-        Input: nums = [1,2,3,1]
-        Output: true
+        Sample Input: nums = [1,2,3,1]
+        Sample Output: true
 
         Explanation: The element 1 occurs at the indices 0 and 3.
 
     - Example 2:
-        Input: nums = [1,2,3,4]
-        Output: false
+        Sample Input: nums = [1,2,3,4]
+        Sample Output: false
 
         Explanation: All elements are distinct.
 
     - Example 3:
-        Input: nums = [1,1,1,3,3,4,3,2,4,2]
-        Output: true
+        Sample Input: nums = [1,1,1,3,3,4,3,2,4,2]
+        Sample Output: true
 
     - Constraints:
         1 <= nums.length <= 105

@@ -6,7 +6,7 @@ import dataStructures.linkedList.DoublyLinkedListDemo;
     Write a function that reverses a doubly linked list in place.
 
     - Example 1:
-        Sample Input: 1 <-> 2 <-> 3 <-> 4 <-> 5
+        Input: 1 <-> 2 <-> 3 <-> 4 <-> 5
         Sample Output: 5 <-> 4 <-> 3 <-> 2 <-> 1
 
     - Example 2:

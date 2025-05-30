@@ -16,9 +16,9 @@ import java.util.List;
     are allowed to use a built-in join method/function.
     Also, the input isn't guaranteed to always contain words.
 
-    Sample Input: "Reverse this string."
+    Input: "Reverse this string."
 
-    Sample Output: "string. this Reverse"
+    Output: "string. this Reverse"
 */
 
 public class ReverseWordsInAString {

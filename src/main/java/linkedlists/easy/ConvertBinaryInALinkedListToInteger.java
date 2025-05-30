@@ -10,12 +10,12 @@ package linkedlists.easy;
     The most significant bit is at the head of the linked list.
 
     - Example 1:
-        Sample Input: head = [1,0,1]
-        Sample Output: 5
+        Input: head = [1,0,1]
+        Output: 5
 
     - Example 2:
-        Sample Input: head = [0]
-        Sample Output: 0
+        Input: head = [0]
+        Output: 0
 
     - Constraints:
         The linked list is not empty.

@@ -7,12 +7,12 @@ package linkedlists.mid;
     The function should return the head of the modified linked list.
 
     - Example 1:
-        Sample Input: head = [1,2,3,4,5], startIdx = 1, endIdx = 3
-        Sample Output: [1,3,2,4,5]
+        Input: head = [1,2,3,4,5], startIdx = 1, endIdx = 3
+        Output: [1,3,2,4,5]
         Explanation: The nodes from index 1 to 3 (inclusive) are reversed, resulting in the linked list [1,3,2,4,5].
 
     - Example 2:
-        Sample Input: head = [1,2,3,4,5], startIdx = 0, endIdx = 2
+        Input: head = [1,2,3,4,5], startIdx = 0, endIdx = 2
         Sample Output: [3,2,1,4,5]
         Explanation: The nodes from index 0 to 2 (inclusive) are reversed, resulting in the linked list [3,2,1,4,5].
 

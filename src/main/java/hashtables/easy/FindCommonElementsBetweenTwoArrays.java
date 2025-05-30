@@ -71,4 +71,14 @@ public class FindCommonElementsBetweenTwoArrays {
         }
         System.out.println();
     }
+
 }
+
+/*
+    O(n + m) time | O(n) space
+        n = length of nums1, m = length of nums2.
+    1. We create a HashSet to store the elements of nums1.
+    2. We iterate through nums2 and check if each element is present in the HashSet.
+    3. If it is, we add it to the result list and remove it from the HashSet to avoid duplicates.
+    4. Finally, we return the result list containing the common elements.
+*/

@@ -11,13 +11,13 @@ import java.util.Arrays;
     You can assume the input matrix always has at least one value; however, its width and height are not necessarily
     the same.
 
-    Sample Input: matrix = [                     matrix = [
+    Input: matrix = [                     matrix = [
                              [1, 2]                         [1, 2],
                            ]                                [3, 4],
                                                             [5, 6]
                                                           ]
 
-    Sample Output:         [                              [
+    Output:         [                              [
                              [1],                           [1, 3, 5],
                              [2]                            [2, 4, 6]
                            ]                              ]

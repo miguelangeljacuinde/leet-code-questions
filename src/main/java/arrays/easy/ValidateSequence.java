@@ -14,10 +14,10 @@ import java.util.List;
     Note: A single number in an array and the array itself are both valid subsequences of
     the array.
 
-    Sample Input: array = [5, 1, 22, 25, 6, -1, 8, 10]
+    Input: array = [5, 1, 22, 25, 6, -1, 8, 10]
                   sequence = [1, 6, -1, 10]
 
-    Sample Output: true
+    Output: true
  */
 
 public class ValidateSequence {
