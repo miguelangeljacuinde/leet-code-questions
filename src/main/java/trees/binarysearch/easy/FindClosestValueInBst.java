@@ -11,7 +11,7 @@ package trees.binarysearch.easy;
     its left; its value is less than or equal to the value of every node to its right; and its children nodes are
     either valid BST nodes themselves or None/null.
 
-    Sample Input: tree =         10
+    Input: tree =         10
                                /    \
                              5       15
                            /  \     /   \
@@ -20,7 +20,7 @@ package trees.binarysearch.easy;
                        1             14
     target = 12
 
-    Sample Output: 13
+    Output: 13
  */
 
 public class FindClosestValueInBst {

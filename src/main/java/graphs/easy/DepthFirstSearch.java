@@ -11,7 +11,7 @@ import java.util.List;
     the Depth-First Search approach (specifically navigating the tree from left to right), stores all the nodes'
     names in the array, and returns it.
 
-    Sample Input:   graph =     A
+    Input:   graph =     A
                             /   |   \
                            B    C    D
                          /  \       /  \
@@ -19,7 +19,7 @@ import java.util.List;
                            /  \     \
                           I    J     K
 
-    Sample Output: ["A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"]
+    Output: ["A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"]
 
 */
 public class DepthFirstSearch {

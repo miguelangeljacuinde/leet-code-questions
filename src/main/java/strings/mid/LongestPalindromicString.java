@@ -8,9 +8,9 @@ package strings.mid;
     Note: Single-character strings are palindromes.
     Assume there will only be one longest palindromic string.
 
-    Sample Input: string = "it's highnoon"
+    Input: string = "it's highnoon"
 
-    Sample Output: "noon"
+    Output: "noon"
 */
 
 public class LongestPalindromicString {

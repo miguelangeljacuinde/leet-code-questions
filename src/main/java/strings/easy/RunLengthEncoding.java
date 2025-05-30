@@ -8,7 +8,7 @@ package strings.easy;
     e.g. "AAAAAAAAAAAA" (12 As) cannot be 12A as 12A can be interpreted as "1AA". In order to avoid confusion,
     return "9A3A".
 
-    Sample Input: string = "AAAAAAAAAAAAABBCCCCDD";
+    Input: string = "AAAAAAAAAAAAABBCCCCDD";
 
     Sample Output: "9A4A2B4C2D"
 */

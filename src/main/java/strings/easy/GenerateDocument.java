@@ -13,10 +13,10 @@ package strings.easy;
 
     Note: You can always generate the empty string "".
 
-    Sample Input: characters = "abcabc"
+    Input: characters = "abcabc"
                   document = "aabbccc"
 
-    Sample Output: false -> missing one extra c
+    Output: false -> missing one extra c
 */
 
 import java.util.HashMap;

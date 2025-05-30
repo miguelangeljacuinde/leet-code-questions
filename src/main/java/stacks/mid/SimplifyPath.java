@@ -24,16 +24,16 @@ import java.util.Stack;
     Return the simplified canonical path.
 
     - Example 1:
-        Sample Input: path = "/home/user/Documents/../Pictures"
-        Sample Output: "/home/user/Pictures"
+        Input: path = "/home/user/Documents/../Pictures"
+        Output: "/home/user/Pictures"
 
     - Example 2:
-        Sample Input: path = "/../"
-        Sample Output: "/"
+        Input: path = "/../"
+        Output: "/"
 
     - Example 3:
-        Sample Input: path = "/.../a/../b/c/../d/./"
-        Sample Output: "/.../b/d/"
+        Input: path = "/.../a/../b/c/../d/./"
+        Output: "/.../b/d/"
 
     - Constraints:
         1 <= path.length <= 3000

@@ -14,9 +14,9 @@ import java.util.List;
 
     Note: The order of the returned pairs and the order of the strings within each pair does not matter.
 
-    Sample Input: words = ["diaper", "abc", "test", "cba", "repaid"]
+    Input: words = ["diaper", "abc", "test", "cba", "repaid"]
 
-    Sample Output: [["diaper", "repaid"], ["abc", "cba"]]
+    Output: [["diaper", "repaid"], ["abc", "cba"]]
 */
 
 public class Semordnilap {

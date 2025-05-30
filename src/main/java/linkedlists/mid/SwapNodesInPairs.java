@@ -6,8 +6,8 @@ package linkedlists.mid;
     modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 
     - Example 1:
-        Sample Input: head = [1,2,3,4]
-        Sample Output: [2,1,4,3]
+        Input: head = [1,2,3,4]
+        Output: [2,1,4,3]
 
     - Example 2:
         Sample Input: head = []

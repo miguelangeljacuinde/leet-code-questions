@@ -11,9 +11,9 @@ import java.util.Arrays;
     For example, if you're given coins = [1, 2, 5], the min. amount of change that you
     cannot create is 4. If you're given no coins, the min. amount you are able to create is 1.
 
-    Sample Input: array = [5, 7, 1, 1, 2, 3, 22]
+    Input: array = [5, 7, 1, 1, 2, 3, 22]
 
-    Sample Output: 20
+    Output: 20
 */
 
 public class NonConstructibleChange {

@@ -9,9 +9,9 @@ package recursion;
     For the purpose of this question, the first Fibonacci number is F0; therefore, getNthFib(1) is equal to F0,
     getNthFib(2) is equal to F1, etc...
 
-    Sample Input: n = 5
+    Input: n = 5
 
-    Sample Output: 3 // 0, 1, 1, 2, 3
+    Output: 3 // 0, 1, 1, 2, 3
  */
 
 import java.util.HashMap;

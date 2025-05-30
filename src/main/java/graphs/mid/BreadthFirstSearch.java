@@ -13,7 +13,7 @@ import java.util.Queue;
     Breadth-First Search approach (specifically navigating the tree from left to right), stores all the nodes' names
     in the input array, and returns it.
 
-    Sample Input:   graph =     A
+    Input:   graph =     A
                             /   |   \
                            B    C    D
                          /  \       /  \
@@ -21,7 +21,7 @@ import java.util.Queue;
                            /  \     \
                           I    J     K
 
-    Sample Output: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
+    Output: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 */
 
 public class BreadthFirstSearch {
