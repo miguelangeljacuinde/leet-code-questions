@@ -1,5 +1,9 @@
 package hashtables.mid;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /*
     Given an array of integers nums and a target integer target, write a method called subarraySum that finds the
     indices of a contiguous subarray in nums that add up to the target sum using a hash table (HashMap).
@@ -27,11 +31,7 @@ package hashtables.mid;
         -10^9 <= target <= 10^9
 */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-public class subArraySum {
+public class SubArraySum {
 
     /**
      * Finds the starting and ending indices of a contiguous subarray that sums to the target.
