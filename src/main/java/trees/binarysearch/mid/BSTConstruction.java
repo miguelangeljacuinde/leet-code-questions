@@ -17,7 +17,7 @@ package trees.binarysearch.mid;
 
 public class BSTConstruction {
 
-    public class BST {
+    public static class BST {
 
         private int value;
         private BST left;
@@ -27,6 +27,12 @@ public class BSTConstruction {
             this.value = value;
         }
 
+        /**
+         * Inserts a value into the BST.
+         *
+         * @param value - the value to be inserted
+         * @return - the current node after insertion
+         */
         public BST insert(int value) {
             BST currentNode = this;
             while (true) {
@@ -47,6 +53,12 @@ public class BSTConstruction {
             return currentNode;
         }
 
+        /**
+         * Checks if the BST contains a value.
+         *
+         * @param value - the value to be searched for
+         * @return - true if the value is found, false otherwise
+         */
         public boolean contains(int value) {
             BST currentNode = this;
             while (currentNode != null) {
@@ -61,12 +73,24 @@ public class BSTConstruction {
             return false;
         }
 
+        /**
+         * Removes a value from the BST.
+         *
+         * @param value - the value to be removed
+         * @return - the current node after removal
+         */
         public BST remove(int value) {
             remove(value, null);
             return this;
         }
 
-        public void remove(int value, BST parentNode) {
+        /**
+         * Helper method to remove a value from the BST.
+         *
+         * @param value      - the value to be removed
+         * @param parentNode - the parent node of the current node
+         */
+        private void remove(int value, BST parentNode) {
             BST currentNode = this;
             while (currentNode != null) {
                 if (value < currentNode.value) {
@@ -88,8 +112,6 @@ public class BSTConstruction {
                             currentNode.value = currentNode.right.value;
                             currentNode.left = currentNode.right.left;
                             currentNode.right = currentNode.right.right;
-                        } else {
-                            // do nothing; empty tree
                         }
                     } else if (parentNode.left == currentNode)
                         parentNode.left = currentNode.left != null ? currentNode.left : currentNode.right;
@@ -100,7 +122,12 @@ public class BSTConstruction {
             }
         }
 
-        public int getMinValue() {
+        /**
+         * Gets the minimum value in the BST.
+         *
+         * @return - the minimum value in the BST
+         */
+        private int getMinValue() {
             if (left == null) {
                 return value;
             } else {
@@ -133,6 +160,29 @@ public class BSTConstruction {
     4. Else the value we are searching for is equal to the current node’s value.
 
     Removal:
-    1.
-
+    1. Grab current node and parent node.
+    2. If value we are removing is less than the current node’s value,
+        check if current node has a left child and recursively call remove method on left child
+        (left child will now be the current node).
+    3. Else if value we are removing is greater than the current node’s value,
+        check if current node has a right child and recursively call remove method on right child
+        (right child will now be the current node).
+    4. Else the value we are removing is equal to the current node’s value, check :
+        a. If current node has both left and right children, replace current node’s value with the minimum value
+           from the right subtree, then recursively call remove method on the right child with the new value.
+        b. If current node does not have a parent node (i.e., it is the root), check if it has a left or right child,
+           and replace its value with that child’s value.
+        c. If current node has a parent node, check if it is a left or right child of the parent and replace it with
+           its left or right child (if it exists).
+    5. If current node does not have any children, simply remove it by setting the parent's left or right child to null.
+    6. If current node has only one child, replace it with that child.
+    7. Return the current node (BST tree).
+    8. If the current node is a single-node tree, do nothing.
+    9. If the current node is null, do nothing.
+    10. If the current node is the root, handle it separately to ensure the tree remains valid.
+    11. If the current node has no children, simply remove it.
+    12. If the current node has one child, replace it with that child.
+    13. If the current node has two children, find the minimum value in the right subtree,
+        replace the current node's value with that minimum value, and recursively remove that minimum value from the right subtree.
+    14. If the current node is not found, do nothing.
 */
