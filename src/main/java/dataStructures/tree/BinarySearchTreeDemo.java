@@ -24,19 +24,23 @@ public class BinarySearchTreeDemo {
     }
 
     /**
+     * This gets the root node of the binary search tree.
+     */
+    public Node getRoot() {
+        return root;
+    }
+
+    /**
      * This method inserts a new value into the binary search tree.
      *
      * @param value - the value to be inserted into the tree
-     * @return - true if the insertion is successful, false otherwise
      */
-    public boolean insertRec(int value) {
-        Node newNode = new Node(value);
+    public void insertRec(int value) {
         if (root == null) {
-            root = newNode;
-            System.out.println("Inserted " + newNode.value + " as root node.");
-            return true;
+            root = new Node(value);
+            System.out.println("Inserted " + root.value + " as root node.");
         } else {
-            return insertRec(root, newNode);
+            insertRec(root, value);
         }
     }
 
@@ -44,29 +48,25 @@ public class BinarySearchTreeDemo {
      * This method inserts a new node into the binary search tree.
      *
      * @param current - the current node in the tree
-     * @param newNode - the new node to be inserted
-     * @return - true if the insertion is successful, false otherwise
+     * @param value   - the new node value to be inserted
      */
-    public boolean insertRec(Node current, Node newNode) {
-        if (current.value == newNode.value) {
-            System.out.println("Value already exists in the tree: " + newNode.value);
-            return false;
+    private void insertRec(Node current, int value) {
+        if (current.value == value) {
+            System.out.println("Value already exists in the tree: " + value);
         }
-        if (newNode.value < current.value) {
+        if (value < current.value) {
             if (current.left == null) {
-                current.left = newNode;
-                System.out.println("Inserted " + newNode.value + " to the left of " + current.value);
-                return true;
+                current.left = new Node(value);
+                System.out.println("Inserted " + value + " to the left of " + current.value);
             } else {
-                return insertRec(current.left, newNode);
+                insertRec(current.left, value);
             }
         } else {
             if (current.right == null) {
-                current.right = newNode;
-                System.out.println("Inserted " + newNode.value + " to the right of " + current.value);
-                return true;
+                current.right = new Node(value);
+                System.out.println("Inserted " + value + " to the right of " + current.value);
             } else {
-                return insertRec(current.right, newNode);
+                insertRec(current.right, value);
             }
         }
     }
@@ -75,30 +75,27 @@ public class BinarySearchTreeDemo {
      * This method inserts a new value into the binary search tree using an iterative approach.
      *
      * @param value - the value to be inserted into the tree
-     * @return - true if the insertion is successful, false otherwise
      */
-    public boolean insert(int value) {
+    public void insert(int value) {
         Node newNode = new Node(value);
         if (root == null) {
             root = newNode;
-            return true;
         }
         Node current = root;
         while (true) {
             if (value == current.value) {
                 System.out.println("Value already exists in the tree: " + value);
-                return false;
             }
             if (value < current.value) {
                 if (current.left == null) {
                     current.left = newNode;
-                    return true;
+                    return;
                 }
                 current = current.left;
             } else {
                 if (current.right == null) {
                     current.right = newNode;
-                    return true;
+                    return;
                 }
                 current = current.right;
             }
@@ -126,17 +123,17 @@ public class BinarySearchTreeDemo {
      * @param value   - the value to be searched
      * @return - true if the value exists, false otherwise
      */
-    public boolean containsRec(Node current, int value) {
-        if (value < current.left.value) {
-            return containsRec(current.left, value);
-        } else if (value > current.right.value) {
-            return containsRec(current.right, value);
+    private boolean containsRec(Node current, int value) {
+        if (current == null) {
+            System.out.println("Value " + value + " not found in the tree.");
+            return false;
         } else if (value == current.value) {
             System.out.println("Value " + value + " found in the tree.");
             return true;
+        }else if (value < current.value) {
+            return containsRec(current.left, value);
         } else {
-            System.out.println("Value " + value + " not found in the tree.");
-            return false;
+            return containsRec(current.right, value);
         }
     }
 
@@ -162,6 +159,58 @@ public class BinarySearchTreeDemo {
         return false;
     }
 
+    /**
+     * This method deletes a value from the binary search tree.
+     *
+     * @param value - the value to be deleted from the tree
+     */
+    public void deleteRec(int value) {
+        System.out.println("Deleting value: " + value);
+        deleteRec(root, value);
+    }
+
+    /**
+     * This method deletes a value from the binary search tree starting from the current node.
+     *
+     * @param current - the current node in the tree
+     * @param value   - the value to be deleted
+     * @return - the updated node after deletion
+     */
+    private Node deleteRec(Node current, int value) {
+        if (current == null) {
+            System.out.println("Value " + value + " not found in the tree. Cannot delete.");
+            return null;
+        } else if (value < current.value) {
+            current.left = deleteRec(current.left, value);
+        } else if (value > current.value) {
+            current.right = deleteRec(current.right, value);
+        } else {
+            if (current.left == null) {
+                current = current.right;
+            } else if (current.right == null) {
+                current = current.left;
+            } else {
+                int subTreeMinValue = minValue(current.right);
+                current.value = subTreeMinValue;
+                current.right = deleteRec(current.right, subTreeMinValue);
+            }
+        }
+        return current;
+    }
+
+    /**
+     * This method finds the minimum value in the binary search tree starting from the current node.
+     *
+     * @param current - the current node in the tree
+     * @return - the minimum value found in the tree
+     */
+    private int minValue(Node current) {
+       while (current.left != null) {
+           current = current.left;
+       }
+       return current.value;
+    }
+
     public static void main(String[] args) {
         BinarySearchTreeDemo treeDemo = new BinarySearchTreeDemo();
 
@@ -180,6 +229,16 @@ public class BinarySearchTreeDemo {
 
         treeDemo.containsRec(10);
         treeDemo.containsRec(6);
+        treeDemo.containsRec(0);
+
+        treeDemo.deleteRec(3);
+        printTree(treeDemo.root);
+
+        treeDemo.deleteRec(14);
+        printTree(treeDemo.root);
+
+        treeDemo.deleteRec(10);
+        printTree(treeDemo.root);
     }
 
     /**
@@ -188,6 +247,7 @@ public class BinarySearchTreeDemo {
      * @param root - the root node of the binary tree
      */
     public static void printTree(Node root) {
+        System.out.println("\nBinary Tree Structure : ");
         int maxLevel = maxLevel(root);
         printNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
