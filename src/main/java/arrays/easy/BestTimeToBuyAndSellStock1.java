@@ -25,17 +25,6 @@ package arrays.easy;
 
 public class BestTimeToBuyAndSellStock1 {
 
-    public static void main(String[] args) {
-        int[] prices1 = new int[]{7, 1, 5, 3, 6, 4};
-        System.out.println(maxProfit(prices1));
-
-        int[] prices2 = new int[]{7, 6, 4, 3, 1};
-        System.out.println(maxProfit(prices2));
-
-        int[] prices3 = new int[]{1};
-        System.out.println(maxProfit(prices3));
-    }
-
     /**
      * Finds the profit you can make within an array of stock prices
      *
@@ -56,10 +45,22 @@ public class BestTimeToBuyAndSellStock1 {
         return profit;
     }
 
+    public static void main(String[] args) {
+        int[] prices1 = new int[]{7, 1, 5, 3, 6, 4};
+        System.out.println(maxProfit(prices1));
+
+        int[] prices2 = new int[]{7, 6, 4, 3, 1};
+        System.out.println(maxProfit(prices2));
+
+        int[] prices3 = new int[]{1};
+        System.out.println(maxProfit(prices3));
+    }
+
 }
 
 /*
     O(n) time | O(1) space
+        n = length of the prices array.
     1. Initialize the profit to 0 and the buy as the first price in the array.
     2. Iterate through the prices.
         a. If the current price < buy, buy = that current price.
