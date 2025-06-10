@@ -10,20 +10,20 @@ import java.util.Set;
     every element is distinct.
 
     - Example 1:
-        Input: nums = [1,2,3,1]
-        Output: true
+        Sample Input: nums = [1,2,3,1]
+        Sample Output: true
 
         Explanation: The element 1 occurs at the indices 0 and 3.
 
     - Example 2:
-        Input: nums = [1,2,3,4]
-        Output: false
+        Sample Input: nums = [1,2,3,4]
+        Sample Output: false
 
         Explanation: All elements are distinct.
 
     - Example 3:
-        Input: nums = [1,1,1,3,3,4,3,2,4,2]
-        Output: true
+        Sample Input: nums = [1,1,1,3,3,4,3,2,4,2]
+        Sample Output: true
 
     - Constraints:
         1 <= nums.length <= 105
@@ -31,14 +31,6 @@ import java.util.Set;
 */
 
 public class ContainsDuplicate {
-
-    public static void main(String[] args) {
-        int[] nonUniqueArray = new int[]{1, 2, 3, 3, 3, 4, 5, 6, 6, 7};
-        System.out.println(containsDuplicateWithSorting(nonUniqueArray));
-
-        int[] uniqueArray = new int[]{1, 2, 3, 4, 5, 6, 7};
-        System.out.println(containsDuplicateWithHashSet(uniqueArray));
-    }
 
     /**
      * Sorts the array and then checks to see if every element is unique.
@@ -64,15 +56,24 @@ public class ContainsDuplicate {
      * @return - true if every element in the array is unique.
      */
     public static boolean containsDuplicateWithHashSet(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> uniqueElements = new HashSet<>();
 
         for (int num : nums) {
-            if (set.contains(num)) {
+            if (!uniqueElements.add(num)) {
                 return true;
             }
-            set.add(num);
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nonUniqueArray = new int[]{1, 2, 3, 3, 3, 4, 5, 6, 6, 7};
+        System.out.println("Array : " + Arrays.toString(nonUniqueArray));
+        System.out.println("Is every num in array unique : " + containsDuplicateWithSorting(nonUniqueArray));
+
+        int[] uniqueArray = new int[]{1, 2, 3, 4, 5, 6, 7};
+        System.out.println("Array: " + Arrays.toString(uniqueArray));
+        System.out.println("Is every num in array unique : " + containsDuplicateWithHashSet(uniqueArray));
     }
 
 }
