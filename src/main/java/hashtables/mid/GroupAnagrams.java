@@ -1,5 +1,11 @@
 package hashtables.mid;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /*
     #49
     Given an array of strings strs, group the anagrams together. You can return the answer in any order.
@@ -26,14 +32,12 @@ package hashtables.mid;
         strs[i] consists of lowercase English letters.
 */
 
-import java.util.*;
-
 public class GroupAnagrams {
 
     /**
      * Groups anagrams from the given array of strings.
      *
-     * @param strs the input array of strings
+     * @param strs - the input array of strings
      * @return a 2D array containing grouped anagrams
      */
     public static List<List<String>> groupAnagrams(String[] strs) {
@@ -42,7 +46,7 @@ public class GroupAnagrams {
         for (String str : strs) {
             char[] charArray = str.toCharArray();
             Arrays.sort(charArray);
-            String sortedStr = new String(charArray);
+            String sortedStr = Arrays.toString(charArray);
             anagramMap.putIfAbsent(sortedStr, new ArrayList<>());
             anagramMap.get(sortedStr).add(str);
         }
