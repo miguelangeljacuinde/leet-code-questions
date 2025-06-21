@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class HashTableDemo {
 
-    private final int size = 17;
+    private final int size = 1000;
 
     private final Node[] table;
 
